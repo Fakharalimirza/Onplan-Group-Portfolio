@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "onplan-group-portfolio",
+  "name": "onplan-group-ortfolio",
   "compatibility_date": "2026-07-03",
   "assets": {
     "directory": "./dist",
