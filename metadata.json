@@ -1,0 +1,6 @@
+{
+  "name": "Onplan Group Portfolio",
+  "description": "Professional single-page portfolio website showcasing the Onplan Group of Companies, including company profiles, interactive map locations, social links, and live reviews.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
