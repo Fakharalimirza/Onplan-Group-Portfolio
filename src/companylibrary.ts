@@ -12,41 +12,41 @@ export const companylibrary: CompanyBasic[] = [
     name: 'Onplan Real Estate',
     iconName: 'Building2',
     logoColor: 'from-amber-500 to-orange-600',
-    logoUrl: '/onplan.png'
+    logoUrl: '/onplan.webp'
   },
   {
     id: 'snagx',
     name: 'Snagx',
     iconName: 'Home',
     logoColor: 'from-blue-500 to-indigo-600',
-    logoUrl: '/snagx.png'
+    logoUrl: '/snagx.webp'
   },
   {
     id: 'sufsaf',
     name: 'Al Sufsaf',
     iconName: 'Truck',
     logoColor: 'from-emerald-500 to-teal-600',
-    logoUrl: '/alsufsaf.png'
+    logoUrl: '/alsufsaf.webp'
   },
   {
     id: 'onplangt',
     name: 'Onplan General Trading',
     iconName: 'Zap',
     logoColor: 'from-cyan-500 to-blue-600',
-    logoUrl: '/onplan-gt.png'
+    logoUrl: '/onplan-gt.webp'
   },
   {
     id: 'authentic',
     name: 'Authentic Holiday Homes',
     iconName: 'TrendingUp',
     logoColor: 'from-purple-500 to-pink-600',
-    logoUrl: '/authentic.png'
+    logoUrl: '/authentic.webp'
   },
   {
     id: 'touchup',
     name: 'Touch Up',
     iconName: 'Cpu',
     logoColor: 'from-violet-500 to-fuchsia-600',
-    logoUrl: '/touchup.png'
+    logoUrl: '/touchup.webp'
   }
 ];
