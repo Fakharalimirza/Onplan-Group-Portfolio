@@ -82,8 +82,8 @@ export const companydetailslibrary: Record<string, CompanyDetail> = {
   'touchup': {
     id: '6',
     address: 'Office A 202 - Sports Society Mall - First floor - Mirdif - Dubai',
-    googleReviewsUrl: 'https://www.google.com/search?q=Touch+Up+Office+A+202+Sports+Society+Mall+First+floor+Mirdif+Dubai+reviews',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Touch+Up+Office+A+202+Sports+Society+Mall+First+floor+Mirdif+Dubai',
+    googleReviewsUrl: '',
+    googleMapsUrl: '',
     websiteUrl: 'https://touchup.ae',
     socialLinks: [
       { platform: 'linkedin', url: 'https://linkedin.com/company/onplan-digital', username: 'Onplan Digital Solutions' },

@@ -274,14 +274,14 @@ export default function App() {
                 </div>
               </div>
 
-              {/* GOOGLE REDIRECT CHANNELS */}
-              {(activeCompanyDetail.googleReviewsUrl || activeCompanyDetail.googleMapsUrl) && (
+              {/* OFFICIAL SERVICE CHANNELS */}
+              {(activeCompanyDetail.googleReviewsUrl || activeCompanyDetail.websiteUrl) && (
                 <div className="space-y-4">
                   <h3 className="text-xs font-mono font-bold tracking-widest text-neutral-400 uppercase text-center sm:text-left">
                     GOOGLE SERVICE CHANNELS
                   </h3>
 
-                  <div className={`grid ${activeCompanyDetail.googleReviewsUrl && activeCompanyDetail.googleMapsUrl ? 'grid-cols-2' : 'grid-cols-1'} gap-2 sm:gap-4`}>
+                  <div className={`grid ${activeCompanyDetail.googleReviewsUrl && activeCompanyDetail.websiteUrl ? 'grid-cols-2' : 'grid-cols-1'} gap-2 sm:gap-4`}>
                     
                     {/* DIRECT GOOGLE REVIEWS BUTTON */}
                     {activeCompanyDetail.googleReviewsUrl && (
@@ -302,30 +302,32 @@ export default function App() {
                       </a>
                     )}
 
-                    {/* DIRECT GOOGLE MAPS BUTTON */}
-                    {activeCompanyDetail.googleMapsUrl && (
-                      <a
-                        href={activeCompanyDetail.googleMapsUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center p-2.5 sm:p-4 rounded-2xl border border-neutral-200 bg-white hover:border-neutral-900/60 hover:shadow-lg hover:bg-neutral-50/20 transition-all group cursor-pointer"
-                      >
-                        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-                          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-cyan-50 flex items-center justify-center shrink-0">
-                            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-500" />
+                    {/* Official Website Link */}
+                      {activeCompanyDetail?.websiteUrl && (
+                        <a
+                          href={activeCompanyDetail.websiteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center p-2.5 sm:p-4 rounded-2xl border border-neutral-200 bg-white hover:border-neutral-900/60 hover:shadow-lg hover:bg-neutral-50/20 transition-all group cursor-pointer"
+                        >
+                          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-neutral-50 flex items-center justify-center shrink-0 group-hover:bg-neutral-100 transition-colors">
+                              <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-700 group-hover:text-neutral-950 transition-transform duration-300 group-hover:scale-110" />
+                            </div>
+                            <div className="text-left min-w-0">
+                              <span className="font-display font-bold text-xs sm:text-sm text-neutral-800 block truncate whitespace-nowrap lowercase">
+                                {activeCompanyDetail.websiteUrl.replace(/^(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '')}
+                              </span>
+                            </div>
                           </div>
-                          <div className="text-left min-w-0">
-                            <span className="font-display font-bold text-xs sm:text-sm text-neutral-800 block truncate whitespace-nowrap">Google Maps</span>
-                          </div>
-                        </div>
-                      </a>
-                    )}
-
+                        </a>
+                      )}
                   </div>
                 </div>
               )}
 
-              {/* ALWAYS VISIBLE SOCIAL MEDIA & PUBLIC CHANNELS */}
+ 
+            {/* ALWAYS VISIBLE SOCIAL MEDIA & PUBLIC CHANNELS (Commented Out)
               <div className="space-y-4">
                 <h3 className="text-xs font-mono font-bold tracking-widest text-neutral-400 uppercase text-center">
                   SOCIAL MEDIA
@@ -357,7 +359,7 @@ export default function App() {
                     );
                   })}
 
-                  {/* Official Website Link */}
+                  Official Website Link
                   {activeCompanyDetail?.websiteUrl && (
                     <a
                       href={activeCompanyDetail.websiteUrl}
@@ -374,7 +376,7 @@ export default function App() {
                   )}
                 </div>
               </div>
-
+            */}
             </motion.div>
           )}
         </AnimatePresence>
