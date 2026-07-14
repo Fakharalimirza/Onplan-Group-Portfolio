@@ -14,7 +14,7 @@ export const companylibrary: CompanyBasic[] = [
     logoColor: 'from-amber-500 to-orange-600',
     logoUrl: '/onplan.png'
   },
-  /*{
+  {
     id: 'snagx',
     name: 'Snagx',
     iconName: 'Home',
@@ -34,7 +34,7 @@ export const companylibrary: CompanyBasic[] = [
     iconName: 'Zap',
     logoColor: 'from-cyan-500 to-blue-600',
     logoUrl: '/onplan-gt.png'
-  },*/
+  },
   {
     id: 'authentic',
     name: 'Authentic Holiday Homes',

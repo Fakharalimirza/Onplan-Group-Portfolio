@@ -158,6 +158,8 @@ export default function App() {
     return hasUrl && hasLogo;
   }) || [];
 
+  const instagramLink = activeCompanyDetail?.socialLinks?.find((social) => social.platform === 'instagram');
+
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-800 font-sans flex flex-col selection:bg-neutral-900 selection:text-white">
       
@@ -253,36 +255,17 @@ export default function App() {
                 </div>
               </div>
 
-              {/* OFFICIAL SERVICE CHANNELS */}
-              {(activeCompanyDetail.googleReviewsUrl || activeCompanyDetail.websiteUrl) && (
+              {/* OFFICIAL CHANNELS */}
+              {(activeCompanyDetail.websiteUrl || instagramLink) && (
                 <div className="space-y-4">
                   <h3 className="text-xs font-mono font-bold tracking-widest text-neutral-400 uppercase text-center sm:text-left">
-                    GOOGLE SERVICE CHANNELS
+                    OFFICIAL CHANNELS
                   </h3>
 
-                  <div className={`grid ${activeCompanyDetail.googleReviewsUrl && activeCompanyDetail.websiteUrl ? 'grid-cols-2' : 'grid-cols-1'} gap-2 sm:gap-4`}>
+                  <div className={`grid ${activeCompanyDetail.websiteUrl && instagramLink ? 'grid-cols-2' : 'grid-cols-1'} gap-2 sm:gap-4`}>
                     
-                    {/* DIRECT GOOGLE REVIEWS BUTTON */}
-                    {activeCompanyDetail.googleReviewsUrl && (
-                      <a
-                        href={activeCompanyDetail.googleReviewsUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center p-2.5 sm:p-4 rounded-2xl border border-neutral-200 bg-white hover:border-neutral-900/60 hover:shadow-lg hover:bg-neutral-50/20 transition-all group cursor-pointer"
-                      >
-                        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-                          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-50 flex items-center justify-center shrink-0">
-                            <Star className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500 fill-amber-500" />
-                          </div>
-                          <div className="text-left min-w-0">
-                            <span className="font-display font-bold text-xs sm:text-sm text-neutral-800 block truncate whitespace-nowrap">Google Review</span>
-                          </div>
-                        </div>
-                      </a>
-                    )}
-
                     {/* Official Website Link */}
-                    {activeCompanyDetail?.websiteUrl && (
+                    {activeCompanyDetail.websiteUrl && (
                       <a
                         href={activeCompanyDetail.websiteUrl}
                         target="_blank"
@@ -291,11 +274,32 @@ export default function App() {
                       >
                         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
                           <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-neutral-50 flex items-center justify-center shrink-0 group-hover:bg-neutral-100 transition-colors">
-                            <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-700 group-hover:text-neutral-950 transition-transform duration-300 group-hover:scale-110" />
+                            <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-700 transition-transform duration-300 group-hover:scale-110" />
                           </div>
                           <div className="text-left min-w-0">
                             <span className="font-display font-bold text-xs sm:text-sm text-neutral-800 block truncate whitespace-nowrap lowercase">
                               {activeCompanyDetail.websiteUrl.replace(/^(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '')}
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    )}
+
+                    {/* Instagram Link */}
+                    {instagramLink && (
+                      <a
+                        href={instagramLink.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center p-2.5 sm:p-4 rounded-2xl border border-neutral-200 bg-white hover:border-[#E1306C]/60 hover:shadow-lg hover:bg-[#E1306C]/5 transition-all group cursor-pointer"
+                      >
+                        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#E1306C]/10 flex items-center justify-center shrink-0 group-hover:bg-[#E1306C]/20 transition-colors">
+                            <InstagramLogo className="w-4 h-4 sm:w-5 sm:h-5 text-[#E1306C] transition-transform duration-300 group-hover:scale-110" />
+                          </div>
+                          <div className="text-left min-w-0">
+                            <span className="font-display font-bold text-xs sm:text-sm text-neutral-800 block truncate whitespace-nowrap lowercase">
+                              {instagramLink.username || 'instagram'}
                             </span>
                           </div>
                         </div>
