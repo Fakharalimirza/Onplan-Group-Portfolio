@@ -231,22 +231,7 @@ export default function App() {
               transition={{ duration: 0.4 }}
               className="max-w-2xl mx-auto px-4 sm:px-6 py-3 md:py-6 space-y-4 w-full"
             >
-              {/* Header Bar (Back button & Company H2 title on same line) */}
-              <div className="flex items-center justify-between gap-4 border-b border-neutral-200 pb-4">
-                <button
-                  onClick={handleBackToCompanies}
-                  className="inline-flex items-center gap-2 text-xs font-mono tracking-widest font-bold text-neutral-600 hover:text-neutral-950 px-4 py-2 rounded-2xl border border-neutral-200/80 bg-neutral-50/50 hover:bg-neutral-50 hover:border-neutral-900/30 hover:shadow-sm active:scale-95 transition-all duration-300 group cursor-pointer shrink-0 relative overflow-hidden"
-                >
-                  {/* Elegant micro-texture overlay */}
-                  <span className="absolute inset-0 bg-[radial-gradient(#d4d4d4_1px,transparent_1px)] [background-size:6px_6px] opacity-40 pointer-events-none" />
-                  
-                  <ArrowLeft className="w-3.5 h-3.5 relative z-10 transition-transform group-hover:-translate-x-1 text-neutral-500 group-hover:text-neutral-950" />
-                  <span className="relative z-10">BACK</span>
-                </button>
-                <h2 className="font-display text-base sm:text-lg md:text-xl font-black text-neutral-900 tracking-tight text-right truncate">
-                  {activeCompanyBasic.name}
-                </h2>
-              </div>
+
 
               {/* Company Mini Hero */}
               <div className="bg-white border border-neutral-200/80 p-6 sm:p-8 rounded-3xl shadow-sm relative overflow-hidden flex flex-col items-center gap-4 text-center">
