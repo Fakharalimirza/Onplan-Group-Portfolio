@@ -1,4 +1,4 @@
-import { useState, ComponentType } from 'react';
+import { useState, useEffect, ComponentType } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   ArrowLeft,
@@ -96,15 +96,59 @@ const BRAND_COLORS: Record<string, { text: string; bg: string; hoverBg: string }
 };
 
 export default function App() {
-  const [selectedCompanyId, setSelectedCompanyId] = useState<string | null>(null);
+  // Helper to parse path to company ID
+  const getCompanyIdFromPath = () => {
+    const path = window.location.pathname.replace(/^\/+|\/+$/g, '').trim().toLowerCase();
+    if (!path) return null;
+    
+    // First, find exact match in companylibrary
+    const exactMatch = companylibrary.find(c => c.id.toLowerCase() === path);
+    if (exactMatch) return exactMatch.id;
+    
+    // Fallback: match without trailing dashes
+    const normalizedPath = path.replace(/-+$/, '');
+    const matched = companylibrary.find(
+      (c) => c.id.toLowerCase().replace(/-+$/, '') === normalizedPath
+    );
+    return matched ? matched.id : null;
+  };
+
+  const [selectedCompanyId, setSelectedCompanyId] = useState<string | null>(getCompanyIdFromPath);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setSelectedCompanyId(getCompanyIdFromPath());
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Fetch basic info from companylibrary
   const activeCompanyBasic = companylibrary.find((c) => c.id === selectedCompanyId);
+  
   // Fetch detailed info from companydetailslibrary
-  const activeCompanyDetail = selectedCompanyId ? companydetailslibrary[selectedCompanyId] : null;
+  // Using robust matching so that keys like 'snagx-' and 'snagx' match correctly!
+  const activeCompanyDetail = (() => {
+    if (!selectedCompanyId) return null;
+    if (companydetailslibrary[selectedCompanyId]) {
+      return companydetailslibrary[selectedCompanyId];
+    }
+    // Try normalized match (without trailing dashes)
+    const normalizedId = selectedCompanyId.replace(/-+$/, '').toLowerCase();
+    const foundKey = Object.keys(companydetailslibrary).find(
+      (key) => key.replace(/-+$/, '').toLowerCase() === normalizedId
+    );
+    return foundKey ? companydetailslibrary[foundKey] : null;
+  })();
+
+  const handleSelectCompany = (id: string) => {
+    setSelectedCompanyId(id);
+    window.history.pushState(null, '', `/${id}`);
+  };
 
   const handleBackToCompanies = () => {
     setSelectedCompanyId(null);
+    window.history.pushState(null, '', '/');
   };
 
   // Filter social links to only show if a valid URL is present and the platform is supported in our logo library
@@ -147,7 +191,7 @@ export default function App() {
                   <motion.button
                     key={company.id}
                     onClick={() => {
-                      setSelectedCompanyId(company.id);
+                      handleSelectCompany(company.id);
                     }}
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}

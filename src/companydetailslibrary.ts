@@ -26,7 +26,7 @@ export const companydetailslibrary: Record<string, CompanyDetail> = {
       { platform: 'snapchat', url: 'https://snapchat.com/add/onplan_build', username: 'onplan_build' }
     ]
   },
-  'snagx': {
+  'snagx-': {
     id: '2',
     address: 'Office A 202 - Sports Society Mall - First floor - Mirdif - Dubai',
     googleReviewsUrl: 'https://www.google.com/search?q=Snagx+Office+A+202+Sports+Society+Mall+First+floor+Mirdif+Dubai+reviews',
@@ -41,7 +41,7 @@ export const companydetailslibrary: Record<string, CompanyDetail> = {
       { platform: 'tiktok', url: 'https://tiktok.com/@onplan.properties', username: '@onplan.properties' }
     ]
   },
-  'sufsaf': {
+  'sufsaf-': {
     id: '3',
     address: 'Office A 202 - Sports Society Mall - First floor - Mirdif - Dubai',
     googleReviewsUrl: 'https://www.google.com/search?q=Al+Sufsaf+Office+A+202+Sports+Society+Mall+First+floor+Mirdif+Dubai+reviews',
@@ -54,7 +54,7 @@ export const companydetailslibrary: Record<string, CompanyDetail> = {
       { platform: 'tiktok', url: 'https://tiktok.com/@onplan.logistics', username: '@onplan.logistics' }
     ]
   },
-  'onplangt': {
+  'onplangt-': {
     id: '4',
     address: 'Office A 202 - Sports Society Mall - First floor - Mirdif - Dubai',
     googleReviewsUrl: 'https://www.google.com/search?q=Onplan+General+Trading+Office+A+202+Sports+Society+Mall+First+floor+Mirdif+Dubai+reviews',
