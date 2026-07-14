@@ -177,13 +177,7 @@ export default function App() {
               transition={{ duration: 0.4 }}
               className="max-w-4xl mx-auto px-4 sm:px-6 w-full flex flex-col items-center justify-start md:justify-center py-4 md:py-8"
             >
-              {/* Header Branding */}
-              <div className="text-center mb-8 md:mb-12 space-y-2">
-                <h1 className="font-display text-4xl md:text-5xl font-black tracking-tighter text-neutral-900 uppercase">
-                  ONPLAN <span className="text-neutral-400 font-light">GROUP</span>
-                </h1>
-                <div className="h-1 w-10 bg-neutral-900 mx-auto rounded-full mt-3 opacity-80" />
-              </div>
+
 
               {/* Minimal Logos Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">
@@ -303,25 +297,25 @@ export default function App() {
                     )}
 
                     {/* Official Website Link */}
-                      {activeCompanyDetail?.websiteUrl && (
-                        <a
-                          href={activeCompanyDetail.websiteUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center p-2.5 sm:p-4 rounded-2xl border border-neutral-200 bg-white hover:border-neutral-900/60 hover:shadow-lg hover:bg-neutral-50/20 transition-all group cursor-pointer"
-                        >
-                          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-neutral-50 flex items-center justify-center shrink-0 group-hover:bg-neutral-100 transition-colors">
-                              <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-700 group-hover:text-neutral-950 transition-transform duration-300 group-hover:scale-110" />
-                            </div>
-                            <div className="text-left min-w-0">
-                              <span className="font-display font-bold text-xs sm:text-sm text-neutral-800 block truncate whitespace-nowrap lowercase">
-                                {activeCompanyDetail.websiteUrl.replace(/^(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '')}
-                              </span>
-                            </div>
+                    {activeCompanyDetail?.websiteUrl && (
+                      <a
+                        href={activeCompanyDetail.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center p-2.5 sm:p-4 rounded-2xl border border-neutral-200 bg-white hover:border-neutral-900/60 hover:shadow-lg hover:bg-neutral-50/20 transition-all group cursor-pointer"
+                      >
+                        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-neutral-50 flex items-center justify-center shrink-0 group-hover:bg-neutral-100 transition-colors">
+                            <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-700 group-hover:text-neutral-950 transition-transform duration-300 group-hover:scale-110" />
                           </div>
-                        </a>
-                      )}
+                          <div className="text-left min-w-0">
+                            <span className="font-display font-bold text-xs sm:text-sm text-neutral-800 block truncate whitespace-nowrap lowercase">
+                              {activeCompanyDetail.websiteUrl.replace(/^(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '')}
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    )}
                   </div>
                 </div>
               )}
